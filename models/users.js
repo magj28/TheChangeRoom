@@ -1,40 +1,65 @@
-//sample schema code
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
-// const UserSchema = new mongoose.Schema({
-//     "First Name": {
-//         type: String,
-//     },
-//     "Last Name": {
-//         type: String,
-//     },
-//     "Email": {
-//         type: String,
-//     },
-//     "Username": {
-//         type: String,
-//     },
-//     "Password": {
-//         type: String,
-//     },
-//     "Country Code": {
-//         type: String,
-//     },
-//     "Mobile Number": {
-//         type: String,
-//     },
-//     "Active (Y/N)": {
-//         type: String,
-//         enum: ['Y', 'N']
-//     },
-//     "Start Date": {
-//         type: Date,
-//         required: true,
-//     },
-//     "End Date": {
-//         type: Date,
-//     },
-// })
+const ChangeRoomsSchema = new mongoose.Schema({
+    _id: false,
+    "ChangeRoom Id": {
+        type: String,
+    }
+});
 
-// const User = mongoose.model('User', UserSchema);
-// module.exports = User;
+const CollectionSchema = new mongoose.Schema({
+    _id: false,
+    "Item Id": {
+        type: String,
+    }
+});
+
+const RecommendationSchema = new mongoose.Schema({
+    _id: false,
+    "User Id": {
+        type: String,
+    },
+    "Item Id": {
+        type: String,
+    }
+});
+
+const FriendListSchema = new mongoose.Schema({
+    _id: false,
+    "User Id": {
+        type: String,
+    },
+    "Friendship Counter": {
+        type: String,
+    },
+    "Online Status": {
+        type: String,
+    },
+    "Change Rooms": [ChangeRoomsSchema]
+});
+
+const FriendRequestsSchema = new mongoose.Schema({
+    _id: false,
+    "User Id": {
+        type: String,
+    }
+});
+
+const UserSchema = new mongoose.Schema({
+    "User Id": {
+        type: String,
+    },
+    "Phone Number": {
+        type: String,
+    },
+    "Email Id": {
+        type: String,
+    },
+    "Collection": [CollectionSchema],
+    "Recommendation": [RecommendationSchema],
+    "Friend Lists": [FriendListSchema],
+    "Friend Requests": [FriendRequestsSchema]
+})
+
+const User = mongoose.model('User', UserSchema);
+module.exports = User;
