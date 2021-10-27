@@ -1,18 +1,14 @@
-//sample controller code, overwrite
-// const User = require('../model/users');
+const User = require('../models/users');
 
-// //gets user data
-// exports.getData = async (req, res) => {
-//     var userID = req.params.userID
+//gets user data
+exports.getData = async (req, res) => {
+    var userID = req.params.userID
 
-//     let resp = await User.findOne({ _id: userID, "Active (Y/N)": 'Y' });
+    let resp = await User.findOne({ "User Id" : userID });
 
-
-//     return res.status(200).json({
-//         status: "success",
-//         message: "User login",
-//         data: {
-//             User: resp
-//         }
-//     })
-// }
+    return res.status(200).json({
+        status: "success",
+        message: "User login",
+        User: resp
+    })
+}
