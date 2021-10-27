@@ -2,7 +2,7 @@ const User = require('../models/users');
 const Order = require('../models/orders');
 const Item = require('../models/items');
 
-//gets Cart
+//gets Order
 exports.getOrders = async (req, res) => {
     var userID = req.params.userID
 
@@ -18,7 +18,7 @@ exports.getOrders = async (req, res) => {
     return res.status(200).json({
         status: "success",
         message: "Recommendations given to user",
-        Cart: order
+        Order: order
     })
 }
 

@@ -25,13 +25,19 @@ const Server = server.listen(PORT, () => {
 });
 
 //Importing controllers
-// const userRoute = require('./routes/user');
+const userRoute = require('./routes/user');
+const cartRoute = require('./routes/cart');
+const orderRoute = require('./routes/order');
+const recRoute = require('./routes/recommendation');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //initializing routes
-// app.use('/user', userRoute);
+app.use('/user', userRoute);
+app.use('/cart', cartRoute);
+app.use('/order', orderRoute);
+app.use('/rec', recRoute);
 
 //404 page
 app.use((req, res) => {
