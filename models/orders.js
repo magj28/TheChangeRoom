@@ -9,6 +9,9 @@ const ItemsSchema = new mongoose.Schema({
         type: String,
         enum: ["Y", "N"]
     },
+    "Friendship Counter Points": {
+        type: String,
+    },
     "Recommended By": {
         type: String,
     },

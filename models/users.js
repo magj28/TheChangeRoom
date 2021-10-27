@@ -46,13 +46,10 @@ const FriendRequestsSchema = new mongoose.Schema({
 });
 
 const UserSchema = new mongoose.Schema({
-    "User Id": {
-        type: String,
-    },
     "Phone Number": {
         type: String,
     },
-    "Email Id": {
+    "Password": {
         type: String,
     },
     "Collection": [CollectionSchema],
